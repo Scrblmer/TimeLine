@@ -49,7 +49,7 @@ jobs:
 
         exclude:
           # mingw is determined by this author to be too buggy to support
-          - os: windows-2019покупки
+          - os: windows-2019
             compiler: gcc-11
 
         include:
@@ -208,7 +208,7 @@ jobs:
         uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: Scrblmer/TimeLine
+          # slug: Scrblmer/TimeLine
           flags: ${{ runner.os }}
           name: ${{ runner.os }}-coverage
           files: ./build/coverage.xml

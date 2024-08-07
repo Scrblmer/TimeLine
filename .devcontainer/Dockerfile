@@ -1,5 +1,5 @@
-# [Choice] bionic (18.04), focal (20.04)
-ARG VARIANT="focal"
+# [Choice] bionic (18.04), focal (20.04), jammy (22.04), noble (24.04 doesn't work yet)
+ARG VARIANT="jammy"
 FROM ubuntu:${VARIANT}
 
 # Restate the variant to use it later on in the llvm and cmake installations
@@ -28,9 +28,9 @@ ENV CONAN_SYSREQUIRES_SUDO=0
 ENV CONAN_SYSREQUIRES_MODE=enabled
 
 # User-settable versions:
-# This Dockerfile should support gcc-[7, 8, 9, 10, 11] and clang-[10, 11, 12, 13]
+# This Dockerfile should support gcc-[7, 8, 9, 10, 11, 12, 13] and clang-[10, 11, 12, 13]
 # Earlier versions of clang will require significant modifications to the IWYU section
-ARG GCC_VER="11"
+ARG GCC_VER="13"
 # Add gcc-${GCC_VER}
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \

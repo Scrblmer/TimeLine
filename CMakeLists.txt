@@ -65,6 +65,9 @@ if(NOT PROJECT_IS_TOP_LEVEL)
   return()
 endif()
 
+# disable creating extra catch targets
+set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)
+
 # Adding the tests:
 include(CTest)
 
